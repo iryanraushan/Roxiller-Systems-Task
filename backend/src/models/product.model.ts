@@ -3,9 +3,21 @@ import { ProductType } from "../types/types";
 
 const productSchema = new Schema<ProductType>(
   {
-    id: { type: "number", required: true, },
-    title: { type: "string", required: true, lowercase: true, trim: true, index: true, },
-    description: { type: "string", required: true, lowercase: true, trim: true, index: true, },
+    id: { type: "number", required: true },
+    title: {
+      type: "string",
+      required: true,
+      lowercase: true,
+      trim: true,
+      index: true,
+    },
+    description: {
+      type: "string",
+      required: true,
+      lowercase: true,
+      trim: true,
+      index: true,
+    },
     price: { type: "number", required: true },
     category: { type: "string", required: true },
     image: { type: "string", required: true },

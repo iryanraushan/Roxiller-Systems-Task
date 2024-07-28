@@ -1,29 +1,3 @@
-// import { useMonth } from "../../contexts/MonthContext";
-
-
-// const SearchFilter = () => {
-
-//   const { selectedMonth, setMonth, months } = useMonth();
-
-
-//   return (
-//     <div>
-//       <select className="p-2 px-8 bg-transparent border rounded-md"
-//         value={selectedMonth} onChange={handleMonthChange}
-//       >
-//         {months.map(({ id, label, value }) => (
-//           <option key={id} value={value} className="text-black bg-transparent">
-//             {label}
-//           </option>
-//         ))}
-//       </select>
-//     </div>
-//   );
-// };
-
-// export default SearchFilter;
-
-
 import React from "react";
 import { useMonth } from "../../contexts/MonthContext";
 
@@ -37,12 +11,16 @@ const SearchFilter: React.FC = () => {
   return (
     <div>
       <select
-        className="p-2 px-8 bg-transparent border rounded-md"
+        className="p-2 -mr-4  px-10 bg-neutral-700  border rounded-md duration-300 hover:bg-neutral-800"
         value={selectedMonth}
         onChange={handleMonthChange}
       >
         {months.map(({ id, label, value }) => (
-          <option key={id} value={value} className="text-black bg-transparent">
+          <option
+            key={id}
+            value={value}
+            className="text-neutral-300 bg-neutral-700 rounded-md "
+          >
             {label}
           </option>
         ))}
@@ -52,5 +30,3 @@ const SearchFilter: React.FC = () => {
 };
 
 export default SearchFilter;
-
-

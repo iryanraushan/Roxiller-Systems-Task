@@ -1,20 +1,18 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
 interface SearchBarProps {
   onSearch: (searchText: string) => void;
 }
 
 const SearchBar: React.FC<SearchBarProps> = ({ onSearch }) => {
-  const [searchText, setSearchText] = useState<string>('');
-
+  const [searchText, setSearchText] = useState<string>("");
 
   const handleSearch = () => {
     onSearch(searchText);
   };
 
   return (
-    <div className="flex items-center justify-center border rounded-md border-slate-500 bg-slate-700">
-
+    <div className="flex items-center justify-center border rounded-md border-slate-500 bg-neutral-700">
       <input
         type="search"
         value={searchText}
@@ -30,4 +28,3 @@ const SearchBar: React.FC<SearchBarProps> = ({ onSearch }) => {
 };
 
 export default SearchBar;
-

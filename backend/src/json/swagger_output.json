@@ -7,10 +7,6 @@
   },
   "servers": [
     {
-      "url": "https://roxciler-systems-assement.onrender.com",
-      "description": "Production server"
-    },
-    {
       "url": "http://localhost:8000",
       "description": "Local server"
     }
@@ -18,9 +14,7 @@
   "paths": {
     "/api/v1/product/initialize-seed-data": {
       "get": {
-        "tags": [
-          "Products "
-        ],
+        "tags": ["Products "],
         "description": "",
         "responses": {
           "200": {
@@ -31,9 +25,7 @@
     },
     "/api/v1/product/": {
       "get": {
-        "tags": [
-          "Products "
-        ],
+        "tags": ["Products "],
         "description": "",
         "responses": {
           "200": {
@@ -44,9 +36,7 @@
     },
     "/api/v1/product/search": {
       "get": {
-        "tags": [
-          "Products "
-        ],
+        "tags": ["Products "],
         "description": "",
         "parameters": [
           {
@@ -66,9 +56,7 @@
     },
     "/api/v1/analytics/statistics": {
       "get": {
-        "tags": [
-          "statistics"
-        ],
+        "tags": ["statistics"],
         "description": "",
         "parameters": [
           {
@@ -91,9 +79,7 @@
     },
     "/api/v1/analytics/bar-chart": {
       "get": {
-        "tags": [
-          "statistics"
-        ],
+        "tags": ["statistics"],
         "description": "",
         "parameters": [
           {
@@ -113,9 +99,7 @@
     },
     "/api/v1/analytics/pie-chart": {
       "get": {
-        "tags": [
-          "statistics"
-        ],
+        "tags": ["statistics"],
         "description": "",
         "parameters": [
           {
@@ -135,9 +119,7 @@
     },
     "/api/v1/analytics/combined-chart": {
       "get": {
-        "tags": [
-          "statistics"
-        ],
+        "tags": ["statistics"],
         "description": "",
         "parameters": [
           {

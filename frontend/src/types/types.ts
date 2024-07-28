@@ -9,8 +9,7 @@ export type ProductType = {
   sold: boolean;
   dateOfSale: string;
   timestamp: Date;
-}
-
+};
 
 export type SearchParams = {
   data: ProductType[];
@@ -18,9 +17,8 @@ export type SearchParams = {
     total: number;
     page: number;
     pages: number;
-  }
-}
-
+  };
+};
 
 interface CommonResponseType<T> {
   statusCode: number;
@@ -40,13 +38,11 @@ export interface PriceRangeCount {
   count: number;
 }
 
-
 export interface BarChartType {
   data?: {
     priceRangeCounts: PriceRangeCount[];
-  }
+  };
 }
-
 
 export interface PieChartType {
   data: {

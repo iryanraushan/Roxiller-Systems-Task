@@ -15,15 +15,12 @@ export const getAllProducts = async (): Promise<ProductType[]> => {
 
 export const searchProducts = async (
   searchText: string,
-  selectedMonth: string,
-
+  selectedMonth: string
 ): Promise<ProductType[]> => {
   try {
     const queryParams = new URLSearchParams();
-    queryParams.append('searchText', searchText || '');
-    queryParams.append('selectedMonth', selectedMonth || '');
-
-
+    queryParams.append("searchText", searchText || "");
+    queryParams.append("selectedMonth", selectedMonth || "");
 
     const response = await axios.get(`${SEARCH_PRODUCT_URL}?${queryParams}`);
 

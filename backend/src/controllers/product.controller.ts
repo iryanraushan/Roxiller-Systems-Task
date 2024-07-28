@@ -13,33 +13,39 @@ const initDataHandler = asyncHandler(async (req, res) => {
   const existingProducts = await Product.find();
 
   if (existingProducts.length > 0) {
-    return res.status(200).json(new ApiResponse(200, existingProducts, "Database already initialized with seed data"));
+    return res
+      .status(200)
+      .json(
+        new ApiResponse(
+          200,
+          existingProducts,
+          "Database already initialized with seed data"
+        )
+      );
   }
 
   const response = await getProductData();
   // console.log(response);
 
-  const product = await Product.insertMany(response)
+  const product = await Product.insertMany(response);
 
-
-  return res.status(200).json(new ApiResponse(200, product, "Database initialized with seed data"));
+  return res
+    .status(200)
+    .json(new ApiResponse(200, product, "Database initialized with seed data"));
 });
 
 const getAllProductsData = asyncHandler(async (req, res) => {
-
   //#swagger.tags = ['Products ']
-  const products = await Product.find().sort({ id: 'asc' });
-
+  const products = await Product.find().sort({ id: "asc" });
 
   if (products.length === 0) {
     throw new ApiError(404, "No products found");
   }
 
-
-  return res.status(200).json(new ApiResponse(200, products, "Products retrieved successfully"));
+  return res
+    .status(200)
+    .json(new ApiResponse(200, products, "Products retrieved successfully"));
 });
-
-
 
 const searchProduct = asyncHandler(async (req, res) => {
   //#swagger.tags = ['Products ']
@@ -48,9 +54,7 @@ const searchProduct = asyncHandler(async (req, res) => {
   const query = constructorSearchQuery(req.query);
 
   const pageSize = 10;
-  const pageNumber = parseInt(
-    req.query.page ? req.query.page.toString() : "1"
-  );
+  const pageNumber = parseInt(req.query.page ? req.query.page.toString() : "1");
 
   if (isNaN(pageNumber) || pageNumber < 1) {
     throw new ApiError(400, "Invalid page number");
@@ -58,10 +62,7 @@ const searchProduct = asyncHandler(async (req, res) => {
 
   const skip = (pageNumber - 1) * pageSize;
 
-  const product = await Product
-    .find(query)
-    .skip(skip)
-    .limit(pageSize);
+  const product = await Product.find(query).skip(skip).limit(pageSize);
 
   const total = await Product.countDocuments();
 
@@ -70,13 +71,14 @@ const searchProduct = asyncHandler(async (req, res) => {
     pagination: {
       total,
       page: pageNumber,
-      pages: Math.ceil(total / pageSize)
-    }
-  }
+      pages: Math.ceil(total / pageSize),
+    },
+  };
 
-  return res.status(200).json(new ApiResponse(200, response, "Products retrieved successfully"));
+  return res
+    .status(200)
+    .json(new ApiResponse(200, response, "Products retrieved successfully"));
 });
-
 
 const constructorSearchQuery = (queryParams: any) => {
   const { searchText, selectedMonth } = queryParams;
@@ -91,7 +93,6 @@ const constructorSearchQuery = (queryParams: any) => {
     ];
   }
 
-
   if (selectedMonth) {
     const startDate = new Date(`${selectedMonth}-01T00:00:00Z`);
     const endDate = new Date(`${selectedMonth}-31T23:59:59Z`);
@@ -99,15 +100,7 @@ const constructorSearchQuery = (queryParams: any) => {
     constructedQuery.dateOfSale = { $gte: startDate, $lte: endDate };
   }
 
-
   return constructedQuery;
 };
 
-
-
-
-export {
-  initDataHandler,
-  getAllProductsData,
-  searchProduct
-};
+export { initDataHandler, getAllProductsData, searchProduct };
