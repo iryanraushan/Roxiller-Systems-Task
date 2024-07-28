@@ -77,7 +77,7 @@ const ProductTable = () => {
   }
   return (
     <div className="flex items-center justify-center h-full text-white bg-neutral-900 ">
-      <div className="p-8 bg-neutral-800 rounded-lg">
+      <div className="p-8 bg-neutral-800  rounded-md">
         <h1 className="mb-6 text-3xl font-bold">Transaction List</h1>
 
         <div className="flex justify-between my-5">

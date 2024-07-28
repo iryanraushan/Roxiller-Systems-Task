@@ -45,7 +45,7 @@ function Pagination({ page, pages, onPageChange }: PaginationProps) {
           <li key={index} onClick={() => memoizedOnPageChange(number)}>
             <button
               className={`
-              px-4 py-2 cursor-pointer font-bold rounded-md border border-slate-500 
+              px-4 py-2 cursor-pointer font-bold rounded-full border border-slate-500 
               ${
                 page === number
                   ? "bg-slate-500 text-white"
